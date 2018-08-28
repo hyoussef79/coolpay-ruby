@@ -53,7 +53,7 @@ module Client
       begin
         response = yield
         return response.parsed_response if response.response.kind_of?(Net::HTTPSuccess)
-        raise 'Oooops'
+        raise(ResponseError, response.response.code)
       end
     end
 

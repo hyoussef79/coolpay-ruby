@@ -1,0 +1,1 @@
+ResponseError = Class.new(StandardError)
