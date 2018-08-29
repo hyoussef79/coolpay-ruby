@@ -4,12 +4,13 @@ require './autoload'
 # in real production system I'd model recipients & payments
 # and encapsulate its data and logic in classes/objects
 #
-# example run: COOLPAY_USERNAME=username COOLPAY_APIKEY=apikey ruby run.rb
+# The following example will 'Authenticate to Coolpay API', 'Add a recipient', 'Send him money' & 'Check payment status'.
+# To execute, run: COOLPAY_USERNAME=username COOLPAY_APIKEY=apikey ruby run.rb
 username = ENV.fetch('COOLPAY_USERNAME', '')
 apikey = ENV.fetch('COOLPAY_APIKEY', '')
 client = Client::CoolPayApi.new(username, apikey)
 
-puts 'Creating a ecipient with name: Hesham'
+puts 'Creating a recipient with name: Hesham'
 recipient = client.create_recipient({ recipient: { name: 'Hesham' } })
 puts 'Recipient with name: Hesham has been created'
 
